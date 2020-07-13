@@ -18,7 +18,7 @@ def cached(cachefile):
             # if cache exists -> load it and return its content
             if os.path.exists(cachefile):
                 with open(cachefile, 'rb') as cachehandle:
-                    print("using cached result from '%s'" % cachefile)
+                    # print("using cached result from '%s'" % cachefile)
                     return pickle.load(cachehandle)
 
             # execute the function with all arguments passed
@@ -26,7 +26,7 @@ def cached(cachefile):
 
             # write to cache file
             with open(cachefile, 'wb') as cachehandle:
-                print("saving result to cache '%s'" % cachefile)
+                # print("saving result to cache '%s'" % cachefile)
                 pickle.dump(res, cachehandle)
 
             return res
@@ -47,7 +47,7 @@ def arg_cached(cachefile):
             path = f"{cachefile}-{args[0]}.pkl"
             if os.path.exists(path):
                 with open(path, 'rb') as cachehandle:
-                    print("using cached result from '%s'" % path)
+                    # print("using cached result from '%s'" % path)
                     return pickle.load(cachehandle)
 
             # execute the function with all arguments passed
@@ -55,7 +55,7 @@ def arg_cached(cachefile):
 
             # write to cache file
             with open(path, 'wb') as cachehandle:
-                print("saving result to cache '%s'" % path)
+                # print("saving result to cache '%s'" % path)
                 pickle.dump(res, cachehandle)
 
             return res
